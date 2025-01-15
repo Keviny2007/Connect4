@@ -91,8 +91,34 @@ class Connect4:
         next_state = self.game_status(new_board)
         return GameState(cur_state=next_state, board=new_board, cur_player=next_player)
 
-    def score(self):
-        return
+    def score(self, row, player, count=0, prev='_'):
+        if len(row) == 0:
+            if prev == player and count > 1:
+                return self._score_player_streak(count)
+
+            elif prev != player and prev != '_' and count > 1:
+                return self._score_opponent_streak(count)
+
+            return 0.0
+
+        hd, *tl = row
+
+        if hd == player or hd == '_':
+            if hd == player:
+                return self.score(tl, player, count + 1, player)
+            else:
+                return self.score(tl, player, count, player)
+        
+        else:
+            streakScore = 0.0
+            if count > 1:
+                if prev == player:
+                    streakScore = self._score_player_streak(count)
+                elif prev != '_' and prev != player:
+                    streakScore = self._score_opponent_streak(count)
+
+            return streakScore + self.score(tl, player, 0, hd)
+
 
     def _score_player_streak(self, count: int) -> float:
         """Helper: scoring for the player's own streak."""
@@ -114,7 +140,7 @@ class Connect4:
         else:
             return 0.
 
-    def streak_estimate(state, player, opponent):
+    def streak_estimate(self, state, player, opponent):
         row_score = 0.0
         for row in state.board:
             row_score += self.score(row, player) - self.score(row, opponent)
@@ -153,20 +179,12 @@ class Connect4:
             # last move was made by the other player 
             last_player = self.get_other_player(state.cur_player)
             # big positive number if X just won, negative if O just won
-            return 999999.0 if last_player == 'X' else -999999.0
+            return float('inf') if last_player == 'X' else float('-inf')
         
         if state.cur_player == "Draw":
             return 0.0
 
-        # higher score for more pieces in a row
-        board = state.board
-        score = 0
-        for row in range(board.shape[0]):
-            for col in range(board.shape[1]):
-                if board[row, col] == 'X':
-                    score += 1
-                elif board[row, col] == 'O':
-                    score -= 1
+        score = self.streak_estimate(state, state.cur_player, self.get_other_player(state.cur_player))
 
         return float(score)
 
