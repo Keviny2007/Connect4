@@ -4,7 +4,7 @@ from aiplayer import AIPlayer
 def main():
     # Initialize the Connect4 game (board height=5, width=7) and the AI player.
     connect4 = Connect4(5, 7)
-    aiplayer = AIPlayer(5, 5, 7)  # Example: AI depth=4, board height=5, width=7 (adjust as needed)
+    aiplayer = AIPlayer(5, 5, 7)  # depth, height, and width
 
     while True:
         print(connect4.string_of_state(connect4.state))
@@ -17,7 +17,9 @@ def main():
         if current_player == 'X':
             # Human player's turn
             user_move = input("Please enter a move (column number): ")
-
+            
+            if user_move == 'exit':
+                break
             # Validate user input
             try:
                 user_move = int(user_move)
