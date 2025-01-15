@@ -4,32 +4,5 @@ To exit the game, the user should can break out of the command line by doing Ctr
 
 Preview of the game:
 
-It is Player 1's turn. 
-Board:                 
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-1 2 3 4 5 6 7
-Please enter a move (column number): 4
-It is Player 2's turn. 
-Board:
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ X _ _ _
-1 2 3 4 5 6 7
-AI is thinking...
+![image](https://github.com/user-attachments/assets/9d35cdd0-11cd-4139-9def-bab7881bf661)
 
-AI chooses column: 1
-It is Player 1's turn. 
-Board:
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-_ _ _ _ _ _ _
-O _ _ X _ _ _
-1 2 3 4 5 6 7
-Please enter a move (column number):
