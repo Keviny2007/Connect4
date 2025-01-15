@@ -1,16 +1,35 @@
+To play Connect4, simply run the file referee.py. On the user's turn, the user should enter valid integers that correspond to the desired column number, valid meaning within the width of the board (starting from 1). 
 
-================================Instructions====================================
+To exit the game, the user should can break out of the command line by doing Ctrl+C. The referee.py file can be modified to set the dimensions of the board as well as set the depth of the AI.
 
-To play Connect4, the user should enter valid integers that represent the 
-desired column number, valid meaning within the width of the board (starting 
-from 1). 
+Preview of the game:
 
-To exit the game, the user should simply
-type "exit". The referee.py file can be modified to set the dimensions of the 
-board as well as set the depth of the AI.
+It is Player 1's turn. 
+Board:                 
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+1 2 3 4 5 6 7
+Please enter a move (column number): 4
+It is Player 2's turn. 
+Board:
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ X _ _ _
+1 2 3 4 5 6 7
+AI is thinking...
 
-=================================People=========================================
-
-Author: Kevin Yang
-
-================================THE END=========================================
+AI chooses column: 1
+It is Player 1's turn. 
+Board:
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+_ _ _ _ _ _ _
+O _ _ X _ _ _
+1 2 3 4 5 6 7
+Please enter a move (column number):
